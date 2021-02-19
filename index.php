@@ -9,7 +9,7 @@
 <body bgcolor="#424242">
 <div class="parent">
 <div class="block">
-<form name="browser" method="post" action="query.php">
+<form name="browser" method="post" action="<?=$_SERVER['SCRIPT_NAME'];?>">
 <h3><div id="query">Enter Query:</div></h3>
 <input type="text" size="40" name="query" id="enter">
 <p><input type="submit" name="action" value="Google" class="b1">
