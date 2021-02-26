@@ -13,7 +13,8 @@
 <h3><div id="query">Enter Query:</div></h3>
 <input type="text" size="40" name="query" id="enter">
 <p><input type="submit" name="action" value="Google" class="b1">
-<input type="submit" name="action" value="Youtube" class="b1"></p>
+<input type="submit" name="action" value="Youtube" class="b1">
+<input type="submit" name="action" value="Wikipedia" class="b1"></p>
 </form>
 </div>
 </div>
@@ -48,7 +49,7 @@
         box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
         border-radius:2px;
         height: 25px;
-        width: 340px;
+        width: 523px;
 	}
 
 	#query {
@@ -71,10 +72,11 @@
 
     .block {
         display: block;
-}
+}s
 </style>
 </body>
 </html>
+
 <?php
 if(isset($_POST['query'])) {
 	$query = $_POST['query']; 
@@ -84,7 +86,14 @@ function makeQuery($string) {
 	$new_query = implode("+", $explode_query);
 
 	return $new_query;
- }
+}
+
+function wiki($string) {
+	$explode_query = explode(" ", $string);
+	$new_query = implode("_", $explode_query);
+
+	return $new_query;
+}
 
 if(isset($_POST['action']) && $_POST['action'] == 'Google') {
 	$google = makeQuery($query);
@@ -92,6 +101,10 @@ if(isset($_POST['action']) && $_POST['action'] == 'Google') {
 }elseif(isset($_POST['action']) && $_POST['action'] == "Youtube") {
 	$youtube = makeQuery($query);
 	header("location: https://www.youtube.com/results?search_query=$youtube");
+}elseif(isset($_POST['action']) && $_POST['action'] == "Wikipedia") {
+	$wiki = wiki($query);
+	header("location: https://en.wikipedia.org/wiki/$wiki");
 }
 }
+
 ?>
