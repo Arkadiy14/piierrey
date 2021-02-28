@@ -76,6 +76,9 @@
         display: block;
     }
 </style>
+<script type="text/javascript">
+	alert('Выберите нужный Вам язык для более удобного поиска!');
+</script>
 </body>
 </html>
 
