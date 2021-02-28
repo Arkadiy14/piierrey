@@ -12,6 +12,8 @@
 <form name="browser" method="post" action="<?=$_SERVER['SCRIPT_NAME'];?>">
 <h3><div id="query">Enter Query:</div></h3>
 <input type="text" size="40" name="query" id="enter">
+<p><input name="lang" type="radio" value="en" class="child" checked>En</p>
+<p><input name="lang" type="radio" value="ru" class="child">Ru</p>
 <p><input type="submit" name="action" value="Google" class="b1">
 <input type="submit" name="action" value="Youtube" class="b1">
 <input type="submit" name="action" value="Wikipedia" class="b1"></p>
@@ -72,7 +74,7 @@
 
     .block {
         display: block;
-}s
+    }
 </style>
 </body>
 </html>
@@ -98,13 +100,23 @@ function wiki($string) {
 if(isset($_POST['action']) && $_POST['action'] == 'Google') {
 	$google = makeQuery($query);
 	header("location: https://www.google.com/search?q=$google");
+
 }elseif(isset($_POST['action']) && $_POST['action'] == "Youtube") {
 	$youtube = makeQuery($query);
 	header("location: https://www.youtube.com/results?search_query=$youtube");
+
 }elseif(isset($_POST['action']) && $_POST['action'] == "Wikipedia") {
 	$wiki = wiki($query);
+
+	if($_POST['lang'] == 'en') {
 	header("location: https://en.wikipedia.org/wiki/$wiki");
-}
+
+    }elseif($_POST['lang'] == 'ru') { 
+    header("location: https://ru.wikipedia.org/wiki/$wiki");
+    }
+
+  }
+
 }
 
 ?>
