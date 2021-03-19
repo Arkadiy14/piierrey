@@ -87,37 +87,28 @@ if(isset($_POST['query'])) {
 	$query = $_POST['query']; 
 
 function makeQuery($string) {
+	global $sign;
 	$explode_query = explode(" ", $string);
-	$new_query = implode("+", $explode_query);
-
-	return $new_query;
-}
-
-function wiki($string) {
-	$explode_query = explode(" ", $string);
-	$new_query = implode("_", $explode_query);
+	$new_query = implode("$sign", $explode_query);
 
 	return $new_query;
 }
 
 if(isset($_POST['action']) && $_POST['action'] == 'Google') {
+	$sign = "+";
 	$google = makeQuery($query);
 	header("location: https://www.google.com/search?q=$google");
 
 }elseif(isset($_POST['action']) && $_POST['action'] == "Youtube") {
+	$sign = "+";
 	$youtube = makeQuery($query);
 	header("location: https://www.youtube.com/results?search_query=$youtube");
 
 }elseif(isset($_POST['action']) && $_POST['action'] == "Wikipedia") {
-	$wiki = wiki($query);
-
-	if($_POST['lang'] == 'en') {
-	header("location: https://en.wikipedia.org/wiki/$wiki");
-
-    }elseif($_POST['lang'] == 'ru') { 
-    header("location: https://ru.wikipedia.org/wiki/$wiki");
-    }
-
+	$sign = '_';
+	$wiki = makeQuery($query);
+	$lang = $_POST['lang'];
+	header("location: https://$lang.wikipedia.org/wiki/$wiki");
   }
 
 }
