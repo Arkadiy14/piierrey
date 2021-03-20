@@ -86,6 +86,8 @@
 if(isset($_POST['query'])) {
 	$query = $_POST['query']; 
 
+
+
 function makeQuery($string) {
 	global $sign;
 	$explode_query = explode(" ", $string);
@@ -93,6 +95,8 @@ function makeQuery($string) {
 
 	return $new_query;
 }
+
+
 
 if(isset($_POST['action']) && $_POST['action'] == 'Google') {
 	$sign = "+";
