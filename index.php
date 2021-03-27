@@ -77,7 +77,7 @@
     }
 </style>
 <script type="text/javascript">
-	alert('Choose a language for a more convenient search!');
+	alert('You can choose a language!');
 </script>
 </body>
 </html>
