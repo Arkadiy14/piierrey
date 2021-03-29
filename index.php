@@ -22,19 +22,19 @@
 </div>
 <style type="text/css">
 	body {
-		font-family: 'Roboto', sans-serif;
-		margin: 0;
-		padding: 0;
+        font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
 	} 
 
 	p {
-		color: #FAFAFA;
+	color: #FAFAFA;
 	}
 
 	.b1 {
-		width: 160px;
-		height: 40px;
-		font-weight: 700;
+	width: 160px;
+	height: 40px;
+	font-weight: 700;
         color: #FAFAFA;
         text-decoration: none;
         padding: .8em 1em calc(.8em + 3px);
@@ -47,7 +47,7 @@
 	}
 
 	#enter {
-		border:1px;
+	border:1px;
         box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
         border-radius:2px;
         height: 25px;
@@ -55,8 +55,8 @@
 	}
 
 	#query {
-		color: #FAFAFA;
-		text-align: left;
+	color: #FAFAFA;
+	text-align: left;
 	}
 
 	.parent {
@@ -72,7 +72,7 @@
         overflow: auto;   
     }
 
-    .block {
+        .block {
         display: block;
     }
 </style>
